@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livrarias Kontak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Menu fixo */
+        header {
+            position: fixed;
+            width: 100%;
+            background-color: #6F68DD;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #FFD700;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #6F68DD;
+        }
+
+        /* Carrossel */
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            flex-shrink: 0;
+            object-fit: cover;
+            height: 400px;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons button {
+            background-color: rgba(111, 104, 221, 0.7);
+            border: none;
+            color: white;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .carousel-buttons button:hover {
+            background-color: rgba(111, 104, 221, 1);
+        }
+
+        /* Seção de tema */
+        .theme {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #6F68DD;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Livrarias Kontak</div>
+        <nav>
+            <a href="#livraria1">Som</a>
+            <a href="#livraria2">Instrumentos</a>
+            <a href="#livraria3">DJ</a>
+            <a href="#livraria4">Produção</a>
+            <a href="#livraria5">Mixagem</a>
+        </nav>
+    </header>
+
+    <!-- Seção 1 -->
+    <section id="livraria1">
+        <h2 class="section-title">Livraria de Som</h2>
+        <p class="theme">Tudo sobre equipamentos de som</p>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1580910051078-8279d1a1b88b" alt="Som 1">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" alt="Som 2">
+                <img src="https://images.unsplash.com/photo-1581092580490-28bfa33d25c8" alt="Som 3">
+            </div>
+            <div class="carousel-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2 -->
+    <section id="livraria2">
+        <h2 class="section-title">Livraria de Instrumentos</h2>
+        <p class="theme">Os melhores livros de instrumentos musicais</p>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947" alt="Instrumento 1">
+                <img src="https://images.unsplash.com/photo-1540322377008-1e5370f2d15d" alt="Instrumento 2">
+                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d" alt="Instrumento 3">
+            </div>
+            <div class="carousel-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3 -->
+    <section id="livraria3">
+        <h2 class="section-title">Livraria DJ</h2>
+        <p class="theme">Livros sobre DJ e mixagem</p>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1530639837001-851efc24dca5" alt="DJ 1">
+                <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" alt="DJ 2">
+                <img src="https://images.unsplash.com/photo-1508898578281-774ac4893d19" alt="DJ 3">
+            </div>
+            <div class="carousel-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 4 -->
+    <section id="livraria4">
+        <h2 class="section-title">Livraria Produção</h2>
+        <p class="theme">Livros sobre produção musical</p>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853" alt="Produção 1">
+                <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947" alt="Produção 2">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166" alt="Produção 3">
+            </div>
+            <div class="carousel-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 5 -->
+    <section id="livraria5">
+        <h2 class="section-title">Livraria Mixagem</h2>
+        <p class="theme">Livros sobre mixagem e masterização</p>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6" alt="Mixagem 1">
+                <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" alt="Mixagem 2">
+                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Mixagem 3">
+            </div>
+            <div class="carousel-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Livrarias Kontak. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Carrossel genérico
+        document.querySelectorAll('.carousel-container').forEach(container => {
+            const slide = container.querySelector('.carousel-slide');
+            const images = container.querySelectorAll('img');
+            const prev = container.querySelector('.prev');
+            const next = container.querySelector('.next');
+            let index = 0;
+
+            function showSlide(i) {
+                if (i < 0) index = images.length - 1;
+                else if (i >= images.length) index = 0;
+                else index = i;
+                slide.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            prev.addEventListener('click', () => showSlide(index - 1));
+            next.addEventListener('click', () => showSlide(index + 1));
+        });
+    </script>
+
+</body>
+
+</html>
