@@ -393,14 +393,25 @@
             border-radius: 10px;
         }
 
+        /* ===== CAROUSEL ===== */
+        .carousel {
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
         .slides {
             display: flex;
-            width: calc(6 * 100% / 3);
+            width: calc(6 * 400px);
+            /* 6 imagens */
             animation: slide 12s linear infinite;
         }
 
         .slides img {
-            width: 100%;
+            width: 400px;
+            height: 300px;
             flex-shrink: 0;
             object-fit: cover;
         }
@@ -411,9 +422,11 @@
             }
 
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-1200px);
+                /* metade das 6 imagens (3 * 400px) */
             }
         }
+
 
         /* ===== ESTATÍSTICAS ===== */
         .stats {
@@ -1414,12 +1427,13 @@
         <!-- Carousel -->
         <div class="carousel">
             <div class="slides">
-                <img src="https://usr-cdn.zaask.pt/users/27eb42c9fa3e81f8b55ba333b5a8db5c84409325" alt="Imagem 1">
-                <img src="https://usr-cdn.zaask.pt/users/27eb42c9fa3e81f8b55ba333b5a8db5c84409325" alt="Imagem 2">
+                <img src="a.jpeg" alt="Imagem 1">
+                <img src="b.jpeg" alt="Imagem 2">
                 <img src="https://usr-cdn.zaask.pt/users/27eb42c9fa3e81f8b55ba333b5a8db5c84409325" alt="Imagem 3">
-                <img src="https://usr-cdn.zaask.pt/users/27eb42c9fa3e81f8b55ba333b5a8db5c84409325" alt="Imagem 1">
-                <img src="https://usr-cdn.zaask.pt/users/27eb42c9fa3e81f8b55ba333b5a8db5c84409325" alt="Imagem 2">
+                <img src="a.jpeg" alt="Imagem 1">
+                <img src="b.jpeg" alt="Imagem 2">
                 <img src="https://usr-cdn.zaask.pt/users/27eb42c9fa3e81f8b55ba333b5a8db5c84409325" alt="Imagem 3">
+
             </div>
         </div>
     </section>

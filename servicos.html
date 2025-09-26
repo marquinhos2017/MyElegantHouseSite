@@ -2042,7 +2042,8 @@
                     <h3>MONTAGEM DE MOBILIÁRIO</h3>
                     <p>Montamos todo tipo de móveis, desde roupeiros e cómodas até estantes e camas, garantindo encaixe
                         perfeito, acabamento impecável e máxima segurança.</p>
-                    <a href="#detalhes-projeto-1" class="btn">Saiba Mais</a>
+                    <!--       <a href="#detalhes-projeto-1" class="btn">Saiba Mais</a>-->
+
                 </div>
             </div>
 
@@ -2055,7 +2056,8 @@
                     <h3>ELETRICIDADE BÁSICA</h3>
                     <p>Realizamos instalações elétricas residenciais e comerciais, garantindo segurança, conformidade
                         com normas e soluções eficientes para cada projeto.</p>
-                    <a href="#detalhes-projeto-2" class="btn">Saiba Mais</a>
+                    <!--  <a href="#detalhes-projeto-2" class="btn">Saiba Mais</a>-->
+
                 </div>
             </div>
 
@@ -2068,7 +2070,7 @@
                     <h3>PINTURA DE INTERIORES</h3>
                     <p>Damos nova vida aos ambientes com pintura cuidadosa, cores harmoniosas e acabamento de qualidade,
                         valorizando cada espaço da sua casa.</p>
-                    <a href="#detalhes-projeto-3" class="btn">Saiba Mais</a>
+                    <!--   <a href="#detalhes-projeto-3" class="btn">Saiba Mais</a>-->
                 </div>
             </div>
 
@@ -2081,8 +2083,25 @@
                     <h3>BRICOLAGE E PEQUENOS REPAROS</h3>
                     <p>Executamos bricolage e reparos domésticos, como prateleiras, suportes e pequenas manutenções,
                         garantindo praticidade, segurança e durabilidade.</p>
-                    <a href="#detalhes-projeto-4" class="btn">Saiba Mais</a>
+                    <!--  <a href="#detalhes-projeto-4" class="btn">Saiba Mais</a>-->
                 </div>
+            </div>
+
+
+            <div class="projeto">
+                <div class="imagem-container">
+                    <img src="../MY ELEGANT HOUSE/a/jardim1.jpeg" alt="Projeto 4" class="imagem-principal">
+                    <img src="../MY ELEGANT HOUSE/a/jardim2.jpeg" alt="Projeto 4 - Hover" class="imagem-hover">
+                </div>
+                <div class="texto-projeto">
+                    <h3>JARDINAGEM</h3>
+                    <p>
+                        Realizamos serviços de jardinagem como poda, plantio, adubação e manutenção de áreas verdes,
+                        garantindo um ambiente sempre saudável, harmonioso e bem cuidado.
+                    </p>
+                    <!--  <a href="#detalhes-projeto-4" class="btn">Saiba Mais</a>-->
+                </div>
+
             </div>
         </div>
 
@@ -3360,6 +3379,148 @@
         .footer-info a:hover {
             text-decoration: underline;
             /* opcional, só quando passar o mouse */
+        }
+
+        /* CORREÇÕES PARA RESPONSIVIDADE DOS SERVIÇOS */
+
+        /* Container dos projetos/serviços */
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* Cada card de serviço */
+        .projeto {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .projeto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .imagem-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .imagem-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .projeto:hover .imagem-container img {
+            transform: scale(1.05);
+        }
+
+        .texto-projeto {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .texto-projeto h3 {
+            margin: 0 0 12px 0;
+            font-size: 18px;
+            color: #222;
+            min-height: auto;
+        }
+
+        .texto-projeto p {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        .texto-projeto .btn {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        /* RESPONSIVIDADE - MEDIA QUERIES */
+
+        /* Tablets (768px a 1024px) */
+        @media (max-width: 1024px) {
+            .project-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .imagem-container {
+                height: 220px;
+            }
+        }
+
+        /* Dispositivos móveis (até 768px) */
+        @media (max-width: 768px) {
+            .project-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .imagem-container {
+                height: 200px;
+            }
+
+            .texto-projeto {
+                padding: 15px;
+            }
+
+            .texto-projeto h3 {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            .texto-projeto p {
+                font-size: 13px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Dispositivos muito pequenos (até 480px) */
+        @media (max-width: 480px) {
+            .project-list {
+                gap: 15px;
+            }
+
+            .imagem-container {
+                height: 180px;
+            }
+
+            .texto-projeto {
+                padding: 12px;
+            }
+
+            .texto-projeto h3 {
+                font-size: 15px;
+            }
+
+            .texto-projeto p {
+                font-size: 12px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
     </style>
 
