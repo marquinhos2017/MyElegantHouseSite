@@ -1438,26 +1438,71 @@
             </div>
 
             <!-- Formulário de Contato -->
-            <div class="contact-form-container">
-                <form action="https://formspree.io/f/xrblwjwa" class="contact-form" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="nome" placeholder="Seu Nome*" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Seu Email*" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="contato" placeholder="Seu Telefone*" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="assunto" placeholder="Assunto*" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="mensagem" placeholder="Sua Mensagem*" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn submit-btn">ENVIAR MENSAGEM</button>
-                </form>
-            </div>
+         <div class="contact-form-container">
+  <form id="contactForm" class="contact-form">
+    <div class="form-group">
+      <input type="text" name="nome" placeholder="Seu Nome*" required />
+    </div>
+
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Seu Email*" required />
+    </div>
+
+  <div class="form-group">
+  <input 
+    type="tel" 
+    id="telefone" 
+    name="contato" 
+    placeholder="Ex: 912 345 678" 
+    required 
+  />
+</div>
+
+    <div class="form-group">
+      <input type="text" name="assunto" placeholder="Assunto*" required />
+    </div>
+
+    <!-- CAMPO CEP -->
+    <div class="form-group">
+      <input
+    type="text"
+    id="cep"
+    name="cep"
+    placeholder="Código Postal*"
+    maxlength="8"
+    required
+  />
+    </div>
+
+    <!-- CAMPO MORADA -->
+    <div class="form-group">
+      <input
+        type="text"
+        id="morada"
+        name="morada"
+        placeholder="Morada (auto preenchida)"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <textarea
+        name="mensagem"
+        placeholder="Sua Mensagem*"
+        rows="5"
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn submit-btn">ENVIAR MENSAGEM</button>
+
+    <p
+      id="formMessage"
+      style="display:none; margin-top:15px; font-weight:bold;"
+    ></p>
+  </form>
+</div>
+
         </div>
     </section>
 
@@ -1506,1192 +1551,80 @@
             </p>
         </div>
     </footer>
-    <style>
-        .services {
-            background-color: #f5f5f5;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .services-content h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #000000;
-            /* cor principal do site */
-        }
-
-        .services-content .btn {
-            background-color: #e6b800;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .services-content .btn:hover {
-            background-color: #957700;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .whatsapp-float img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .whatsapp-float .tooltip {
-            position: absolute;
-            right: 70px;
-            background: #333;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 14px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            white-space: nowrap;
-        }
-
-        .whatsapp-float:hover .tooltip {
-            opacity: 1;
-        }
-
-        .ver-todos-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .btn.ver-todos {
-            background-color: #e6b800;
-            /* cor principal */
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .btn.ver-todos:hover {
-            background-color: #e6b800;
-        }
-
-        .hero-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-
-        .hero-nav .logo img {
-            height: 100px;
-            /* ajuste o tamanho da logo */
-        }
-
-        .hero-nav .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero-nav .nav-links a,
-        .hero-nav .nav-links button {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-    </style>
-
-    <style>
-        footer {
-            background-color: #0C0C0C;
-            /* cor de fundo */
-            color: #fff;
-            /* texto branco */
-            padding: 40px 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 20px;
-        }
-
-        .footer-info,
-        .footer-links,
-        .footer-copy {
-            flex: 1 1 250px;
-        }
-
-        .footer-info h3 {
-            margin-bottom: 15px;
-        }
-
-        .footer-links h4 {
-            margin-bottom: 15px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links ul li a:hover {
-            color: #F2613F;
-            /* cor de destaque ao passar o mouse */
-        }
-
-        .footer-copy {
-            flex-basis: 100%;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer-copy a {
-            color: #F2613F;
-            text-decoration: none;
-        }
-
-        .footer-copy a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-info,
-            .footer-links {
-                flex: 1 1 100%;
-            }
-        }
-
-        footer {
-            background: #0c0c0c;
-            color: #f6f6f8;
-            padding: 40px 20px 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-info,
-        .footer-links,
-        .footer-social {
-            flex: 1 1 250px;
-            margin: 15px;
-        }
-
-        .footer-info h3 {
-            color: #f2613f;
-            margin-bottom: 15px;
-        }
-
-        .footer-links h4,
-        .footer-social h4 {
-            margin-bottom: 10px;
-            color: #9b3922;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links ul li {
-            margin: 8px 0;
-        }
-
-        .footer-links ul li a {
-            color: #f6f6f8;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links ul li a:hover {
-            color: #f2613f;
-        }
-
-        .footer-social .social-icons a {
-            display: inline-block;
-            margin-right: 10px;
-            font-size: 18px;
-            color: #f6f6f8;
-            transition: color 0.3s;
-        }
-
-        .footer-social .social-icons a:hover {
-            color: #f2613f;
-        }
-
-        .footer-copy {
-            text-align: center;
-            margin-top: 30px;
-            border-top: 1px solid #333;
-            padding-top: 15px;
-            font-size: 14px;
-        }
-
-        .footer-copy a {
-            color: #f2613f;
-            text-decoration: none;
-        }
-
-        .footer-copy a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg1zNvmRUDNglkBFt2SyUBFTNKzyIHis9LZA&s") center center / cover no-repeat fixed;
-            color: #f6f6f8;
-            padding: 40px 20px 20px;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            /* overlay escuro pra dar contraste no texto */
-            z-index: -1;
-        }
-
-        /* largura do scroll */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        /* trilho (fundo do scroll) */
-        ::-webkit-scrollbar-track {
-            background: #0c0c0c;
-            /* preto da sua paleta */
-        }
-
-        /* barra que se move */
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #007bff, #481E14);
-            /* azul -> vinho */
-            border-radius: 10px;
-        }
-
-        /* hover no scroll */
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #007bff, #9B3922);
-            /* azul -> vermelho mais vivo */
-        }
-
-        /* Header alinhado à esquerda */
-        .projects .projects-header {
-            text-align: left !important;
-            margin-bottom: 30px;
-        }
-
-        .projects .projects-header h5,
-        .projects .projects-header h2 {
-            text-align: left !important;
-            margin: 0;
-        }
-    </style>
-
-    <style>
-        .footer-social h4 {
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .footer-social .social-icons a {
-            color: #fff;
-            /* ícones brancos */
-            font-size: 20px;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social .social-icons a:hover {
-            color: #e6b800;
-            /* cor ao passar o mouse */
-        }
-
-        footer {
-            background-color: #0C0C0C;
-            /* cor de fundo */
-            color: #fff;
-            /* texto branco */
-            padding: 40px 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 20px;
-        }
-
-        .footer-info,
-        .footer-links,
-        .footer-copy {
-            flex: 1 1 250px;
-        }
-
-        .footer-info h3 {
-            margin-bottom: 15px;
-        }
-
-        .footer-links h4 {
-            margin-bottom: 15px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links ul li a:hover {
-            color: #e6b800;
-            /* cor de destaque ao passar o mouse */
-        }
-
-        .footer-copy {
-            flex-basis: 100%;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer-copy a {
-            color: #F2613F;
-            text-decoration: none;
-        }
-
-        .footer-copy a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-info,
-            .footer-links {
-                flex: 1 1 100%;
-            }
-        }
-
-        footer {
-            background: #0c0c0c;
-            color: #f6f6f8;
-            padding: 40px 20px 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-info,
-        .footer-links,
-        .footer-social {
-            flex: 1 1 250px;
-            margin: 15px;
-        }
-
-        .footer-info h3 {
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .footer-links h4,
-        .footer-social h4 {
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links ul li {
-            margin: 8px 0;
-        }
-
-        .footer-links ul li a {
-            color: #f6f6f8;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links ul li a:hover {
-            color: #e6b800;
-        }
-
-        .footer-social .social-icons a {
-            display: inline-block;
-            margin-right: 10px;
-            font-size: 18px;
-            color: #f6f6f8;
-            transition: color 0.3s;
-        }
-
-        .footer-social .social-icons a:hover {
-            color: #e6b800;
-        }
-
-        .footer-copy {
-            text-align: center;
-            margin-top: 30px;
-            border-top: 1px solid #333;
-            padding-top: 15px;
-            font-size: 14px;
-        }
-
-        .footer-copy a {
-            color: #e6b800;
-            text-decoration: none;
-        }
-
-        .footer-copy a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: url("https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3JheSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D") center center / cover no-repeat fixed;
-            color: #f6f6f8;
-            padding: 40px 20px 20px;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            /* overlay escuro pra dar contraste no texto */
-            z-index: -1;
-        }
-
-        /* largura do scroll */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        /* trilho (fundo do scroll) */
-        ::-webkit-scrollbar-track {
-            background: #0c0c0c;
-            /* preto da sua paleta */
-        }
-
-        /* barra que se move */
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #007bff, #481E14);
-            /* azul -> vinho */
-            border-radius: 10px;
-        }
-
-        /* hover no scroll */
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #8a6e00, #e6b800);
-            /* azul -> vermelho mais vivo */
-        }
-
-        .footer-info a {
-            text-decoration: none;
-            color: #fff;
-            /* ou a cor que quiser */
-        }
-
-        .footer-info a:hover {
-            text-decoration: underline;
-            /* opcional, só quando passar o mouse */
-        }
-    </style>
-
-    <style>
-        /* Footer Geral */
-        footer {
-            background: url("https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3JheSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D") center center / cover no-repeat fixed;
-            color: #f6f6f8;
-            padding: 40px 20px 20px;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            z-index: -1;
-        }
-
-        /* Container */
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 20px;
-        }
-
-        /* Seções do Footer */
-        .footer-info,
-        .footer-links,
-        .footer-social {
-            flex: 1 1 120px;
-            margin: 10px;
-        }
-
-        /* Títulos */
-        .footer-info h3,
-        .footer-links h4,
-        .footer-social h4 {
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        /* Links */
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a,
-        .footer-info a {
-            color: #f6f6f8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links ul li a:hover,
-        .footer-info a:hover {
-            color: #e6b800;
-            text-decoration: underline;
-        }
-
-        /* Ícones Sociais */
-        .footer-social .social-icons a {
-            display: inline-block;
-            margin: 0 10px 0 0;
-            font-size: 20px;
-            color: #f6f6f8;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social .social-icons a:hover {
-            color: #e6b800;
-        }
-
-        /* Copy */
-        .footer-copy {
-            flex-basis: 100%;
-            text-align: center;
-            margin-top: 8px;
-            border-top: 1px solid #333;
-            padding-top: 15px;
-            font-size: 14px;
-        }
-
-        .footer-copy a {
-            color: #e6b800;
-            text-decoration: none;
-        }
-
-        .footer-copy a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsividade */
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 0;
-                /* remove espaçamento geral */
-            }
-
-            .footer-info,
-            .footer-links,
-            .footer-social {
-                margin: 24px;
-                /* remove margens entre blocos */
-            }
-
-            .footer-copy {
-                margin-top: 0;
-                /* bem menor que os 30 */
-                padding-top: 0;
-                /* compacta o espaço do divisor */
-            }
-        }
-
-
-        /* Scrollbar Custom */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #8a6e00, #e6b800);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #8a6e00, #e6b800);
-        }
-
-
-        .hero-background::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.1);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: #fff;
-            text-align: center;
-        }
-
-        .hero-nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero-nav a:hover {
-            text-decoration: underline;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin: 20px 0;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-
-            z-index: 1;
-            filter: brightness(0.5);
-
-        }
-
-        .hero-nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero-nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
-
-
-
-    <style>
-        /* Footer Geral */
-        footer {
-            background: url("https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3JheSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D") center center / cover no-repeat fixed;
-            color: #f6f6f8;
-            padding: 40px 20px 20px;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            z-index: -1;
-        }
-
-        /* Container */
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 20px;
-        }
-
-        /* Seções do Footer */
-        .footer-info,
-        .footer-links,
-        .footer-social {
-            flex: 1 1 120px;
-            margin: 10px;
-        }
-
-        /* Títulos */
-        .footer-info h3,
-        .footer-links h4,
-        .footer-social h4 {
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        /* Links */
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a,
-        .footer-info a {
-            color: #f6f6f8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links ul li a:hover,
-        .footer-info a:hover {
-            color: #e6b800;
-            text-decoration: underline;
-        }
-
-        /* Ícones Sociais */
-        .footer-social .social-icons a {
-            display: inline-block;
-            margin: 0 10px 0 0;
-            font-size: 20px;
-            color: #f6f6f8;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social .social-icons a:hover {
-            color: #e6b800;
-        }
-
-        /* Copy */
-        .footer-copy {
-            flex-basis: 100%;
-            text-align: center;
-            margin-top: 8px;
-            border-top: 1px solid #333;
-            padding-top: 15px;
-            font-size: 14px;
-        }
-
-        .footer-copy a {
-            color: #e6b800;
-            text-decoration: none;
-        }
-
-        .footer-copy a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsividade */
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 0;
-                /* remove espaçamento geral */
-            }
-
-            .footer-info,
-            .footer-links,
-            .footer-social {
-                margin: 24px;
-                /* remove margens entre blocos */
-            }
-
-            .footer-copy {
-                margin-top: 0;
-                /* bem menor que os 30 */
-                padding-top: 0;
-                /* compacta o espaço do divisor */
-            }
-        }
-
-
-        /* Scrollbar Custom */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #8a6e00, #e6b800);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #8a6e00, #e6b800);
-        }
-
-
-        .hero-background::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.1);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: #fff;
-            text-align: center;
-        }
-
-        .hero-nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero-nav a:hover {
-            text-decoration: underline;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin: 20px 0;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-
-            z-index: 1;
-            filter: brightness(0.5);
-
-        }
-
-        .hero-nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero-nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
-
-    <style>
-        /* Footer Geral */
-        footer {
-            background: url("https://plus.unsplash.com/premium_photo-1701090939615-1794bbac5c06?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3JheSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D") center center / cover no-repeat fixed;
-            color: #f6f6f8;
-            padding: 40px 20px 20px;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            z-index: -1;
-        }
-
-        /* Container */
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 20px;
-        }
-
-        /* Seções do Footer */
-        .footer-info,
-        .footer-links,
-        .footer-social {
-            flex: 1 1 120px;
-            margin: 10px;
-        }
-
-        /* Títulos */
-        .footer-info h3,
-        .footer-links h4,
-        .footer-social h4 {
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        /* Links */
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a,
-        .footer-info a {
-            color: #f6f6f8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links ul li a:hover,
-        .footer-info a:hover {
-            color: #e6b800;
-            text-decoration: underline;
-        }
-
-        /* Ícones Sociais */
-        .footer-social .social-icons a {
-            display: inline-block;
-            margin: 0 10px 0 0;
-            font-size: 20px;
-            color: #f6f6f8;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social .social-icons a:hover {
-            color: #e6b800;
-        }
-
-        /* Copy */
-        .footer-copy {
-            flex-basis: 100%;
-            text-align: center;
-            margin-top: 8px;
-            border-top: 1px solid #333;
-            padding-top: 15px;
-            font-size: 14px;
-        }
-
-        .footer-copy a {
-            color: #e6b800;
-            text-decoration: none;
-        }
-
-        .footer-copy a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsividade */
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 0;
-                /* remove espaçamento geral */
-            }
-
-            .footer-info,
-            .footer-links,
-            .footer-social {
-                margin: 24px;
-                /* remove margens entre blocos */
-            }
-
-            .footer-copy {
-                margin-top: 0;
-                /* bem menor que os 30 */
-                padding-top: 0;
-                /* compacta o espaço do divisor */
-            }
-        }
-
-
-        /* Scrollbar Custom */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #8a6e00, #e6b800);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #8a6e00, #e6b800);
-        }
-
-
-        .hero-background::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.1);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: #fff;
-            text-align: center;
-        }
-
-        .hero-nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero-nav a:hover {
-            text-decoration: underline;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin: 20px 0;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-
-            z-index: 1;
-            filter: brightness(0.5);
-
-        }
-
-        .hero-nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero-nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
-
+  
     <script>
+        const telInput = document.getElementById("telefone");
+
+  telInput.addEventListener("input", () => {
+    // remove tudo que não é número
+    let valor = telInput.value.replace(/\D/g, "");
+
+    // Limita a 9 ou 10 dígitos
+    valor = valor.slice(0, 9);
+
+    // Adiciona espaços conforme o padrão português
+    if (valor.length > 6) {
+      valor = valor.slice(0, 3) + " " + valor.slice(3, 6) + " " + valor.slice(6);
+    } else if (valor.length > 3) {
+      valor = valor.slice(0, 3) + " " + valor.slice(3);
+    }
+
+    telInput.value = valor;
+  });
+const cepInput = document.getElementById("cep");
+
+  cepInput.addEventListener("input", () => {
+    // remove tudo que não é número
+    let valor = cepInput.value.replace(/\D/g, "");
+
+    // adiciona o hífen após 4 dígitos
+    if (valor.length > 4) {
+      valor = valor.slice(0, 4) + "-" + valor.slice(4, 7);
+    }
+
+    // limita a 8 caracteres (4 + '-' + 3)
+    cepInput.value = valor.slice(0, 8);
+  });
+        const form = document.getElementById("contactForm");
+  const messageEl = document.getElementById("formMessage");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // Impede redirecionamento
+
+    messageEl.style.display = "none";
+    messageEl.textContent = "";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xrblwjwa", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        messageEl.textContent = "✅ Mensagem enviada com sucesso!";
+        messageEl.style.color = "green";
+        messageEl.style.display = "block";
+        form.reset();
+      } else {
+        const data = await response.json();
+        console.error(data);
+        messageEl.textContent =
+          "❌ Ocorreu um erro ao enviar sua mensagem. Tente novamente.";
+        messageEl.style.color = "red";
+        messageEl.style.display = "block";
+      }
+    } catch (error) {
+      console.error(error);
+      messageEl.textContent =
+        "⚠️ Erro de rede. Verifique sua conexão e tente novamente.";
+      messageEl.style.color = "red";
+      messageEl.style.display = "block";
+    }
+  });
+
         // JavaScript permanece o mesmo
         // Remove a splash screen após o carregamento
         window.addEventListener('load', function () {
