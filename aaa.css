@@ -488,7 +488,6 @@
             height: 250px;
             object-fit: cover;
             transition: transform 0.3s ease;
-            cursor: pointer;
         }
 
         .product-card:hover .product-img {
@@ -634,124 +633,6 @@
             font-size: 20px;
             font-weight: bold;
             color: #e6b800;
-        }
-
-        /* ===== VISUALIZADOR DE IMAGENS ===== */
-        .image-viewer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1002;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .image-viewer.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .viewer-container {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .viewer-main-image {
-            max-width: 100%;
-            max-height: 70vh;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .viewer-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 24px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-
-        .viewer-nav:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
-
-        .viewer-prev {
-            left: 20px;
-        }
-
-        .viewer-next {
-            right: 20px;
-        }
-
-        .viewer-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 24px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-
-        .viewer-close:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
-
-        .viewer-thumbnails {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            overflow-x: auto;
-            max-width: 100%;
-            padding: 10px 0;
-        }
-
-        .viewer-thumbnail {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 5px;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
-
-        .viewer-thumbnail.active {
-            opacity: 1;
-            border: 2px solid #e6b800;
-        }
-
-        .viewer-thumbnail:hover {
-            opacity: 1;
         }
 
         /* ===== CARRINHO DE COMPRAS ===== */
@@ -1141,33 +1022,6 @@
             .cart-sidebar {
                 width: 350px;
             }
-
-            .viewer-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .viewer-prev {
-                left: 10px;
-            }
-
-            .viewer-next {
-                right: 10px;
-            }
-
-            .viewer-close {
-                top: 10px;
-                right: 10px;
-                width: 35px;
-                height: 35px;
-                font-size: 18px;
-            }
-
-            .viewer-thumbnail {
-                width: 60px;
-                height: 60px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1211,17 +1065,6 @@
             .footer-social {
                 flex: 1 1 100%;
                 margin: 10px 0;
-            }
-
-            .viewer-nav {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
-            }
-
-            .viewer-thumbnail {
-                width: 50px;
-                height: 50px;
             }
         }
 
@@ -1270,17 +1113,6 @@
                 width: 30px;
                 height: 30px;
             }
-
-            .viewer-nav {
-                width: 30px;
-                height: 30px;
-                font-size: 14px;
-            }
-
-            .viewer-thumbnail {
-                width: 40px;
-                height: 40px;
-            }
         }
     </style>
 </head>
@@ -1291,25 +1123,6 @@
         <img src="logo.png" alt="My Elegant Store" class="splash-logo">
         <div class="splash-loading">
             <div class="splash-loading-bar"></div>
-        </div>
-    </div>
-
-    <!-- Visualizador de Imagens -->
-    <div class="image-viewer" id="imageViewer">
-        <div class="viewer-container">
-            <button class="viewer-close" id="viewerClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="viewer-nav viewer-prev" id="viewerPrev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <img src="" alt="Imagem do produto" class="viewer-main-image" id="viewerMainImage">
-            <button class="viewer-nav viewer-next" id="viewerNext">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <div class="viewer-thumbnails" id="viewerThumbnails">
-                <!-- As miniaturas serão geradas dinamicamente pelo JavaScript -->
-            </div>
         </div>
     </div>
 
@@ -1373,7 +1186,28 @@
     </section>
 
     <!-- Categorias -->
-   
+    <section class="categories" id="categorias">
+        <h2>Nossas Categorias</h2>
+        <div class="line"></div>
+        <div class="categories-container">
+            <div class="category-card">
+                <img src="https://antarte.pt/uploads/thumbs/destaques_produtos/4/md_tokyo066267cadeiraotokyocatblennon4142000x2200ambiente.webp" alt="Decoração" class="category-img">
+                <div class="category-name">Decoração</div>
+            </div>
+            <div class="category-card">
+                <img src="https://via.placeholder.com/300x200" alt="Móveis" class="category-img">
+                <div class="category-name">Móveis</div>
+            </div>
+            <div class="category-card">
+                <img src="https://via.placeholder.com/300x200" alt="Iluminação" class="category-img">
+                <div class="category-name">Iluminação</div>
+            </div>
+            <div class="category-card">
+                <img src="https://via.placeholder.com/300x200" alt="Acessórios" class="category-img">
+                <div class="category-name">Acessórios</div>
+            </div>
+        </div>
+    </section>
 
     <!-- Produtos -->
     <section class="products" id="produtos">
@@ -1387,14 +1221,14 @@
         <div class="products-container">
             <!-- Produto 1 -->
             <div class="product-card">
-                <img src="a1.jpeg" alt="Produto 1" class="product-img" data-product="1">
+                <img src="https://cdn.grupoelcorteingles.es/statics/manager/contents/images/uploads/2025/08/SkfNYhVk_lg.jpeg" alt="Produto 1" class="product-img">
                 <div class="product-info">
                     <h3 class="product-name">Luminária de Mesa Moderna</h3>
                     <p class="product-description">Luminária de mesa com design moderno e acabamento em metal.</p>
-                    <div class="product-price">€ 78,90</div>
+                    <div class="product-price">R$ 189,90</div>
                     <div class="product-actions">
                         <button class="add-to-cart" data-id="1" data-name="Luminária de Mesa Moderna" data-price="189.90">
-                            <i class="fas fa-shopping-cart"></i> Chamar no whatsapp
+                            <i class="fas fa-shopping-cart"></i> Adicionar
                         </button>
                         <button class="wishlist">
                             <i class="far fa-heart"></i>
@@ -1405,14 +1239,14 @@
 
             <!-- Produto 2 -->
             <div class="product-card">
-                <img src="a2.jpeg" alt="Produto 2" class="product-img" data-product="2">
-                 <div class="product-info">
+                <img src="https://via.placeholder.com/300x250" alt="Produto 2" class="product-img">
+                <div class="product-info">
                     <h3 class="product-name">Cadeira de Escritório Ergonômica</h3>
                     <p class="product-description">Cadeira ergonômica para escritório com ajuste de altura.</p>
-                    <div class="product-price">€ 120,90</div>
+                    <div class="product-price">R$ 459,90</div>
                     <div class="product-actions">
                         <button class="add-to-cart" data-id="2" data-name="Cadeira de Escritório Ergonômica" data-price="459.90">
-                            <i class="fas fa-shopping-cart"></i> Chamar no whatsapp
+                            <i class="fas fa-shopping-cart"></i> Adicionar
                         </button>
                         <button class="wishlist">
                             <i class="far fa-heart"></i>
@@ -1423,15 +1257,14 @@
 
             <!-- Produto 3 -->
             <div class="product-card">
-                <img src="a3.jpeg" alt="Produto 3" class="product-img" data-product="3">
+                <img src="https://via.placeholder.com/300x250" alt="Produto 3" class="product-img">
                 <div class="product-info">
-                    <h3 class="product-name">Sapateira Moderna de 5 Portas</h3>
-                    <p class="product-description">Organize seus sapatos com elegância e praticidade com esta sapateira moderna de 5 portas,
-perfeita para quem busca aproveitar ao máximo o espaço sem abrir mão do estilo.</p>
-                    <div class="product-price">€ 149</div>
+                    <h3 class="product-name">Vaso Decorativo Cerâmica</h3>
+                    <p class="product-description">Vaso decorativo em cerâmica artesanal com design exclusivo.</p>
+                    <div class="product-price">R$ 129,90</div>
                     <div class="product-actions">
-                        <button class="add-to-cart" data-id="4" data-name="Mesa de Centro em Madeira" data-price="789.90">
-                            <i class="fas fa-shopping-cart"></i> Chamar no whatsapp
+                        <button class="add-to-cart" data-id="3" data-name="Vaso Decorativo Cerâmica" data-price="129.90">
+                            <i class="fas fa-shopping-cart"></i> Adicionar
                         </button>
                         <button class="wishlist">
                             <i class="far fa-heart"></i>
@@ -1442,65 +1275,14 @@ perfeita para quem busca aproveitar ao máximo o espaço sem abrir mão do estil
 
             <!-- Produto 4 -->
             <div class="product-card">
-                <img src="a3.jpeg" alt="Produto 4" class="product-img" data-product="4">
+                <img src="https://via.placeholder.com/300x250" alt="Produto 4" class="product-img">
                 <div class="product-info">
-                    <h3 class="product-name">Cômoda Iconic 4 Gavetas</h3>
-                    <p class="product-description">Design moderno e funcional, ideal para o quarto
-4 gavetas espaçosas com guias metálicas resistentes
-Puxadores tipo bola em ABS pintado</p>
-                    <div class="product-price">€ 179</div>
+                    <h3 class="product-name">Mesa de Centro em Madeira</h3>
+                    <p class="product-description">Mesa de centro em madeira maciça com acabamento natural.</p>
+                    <div class="product-price">R$ 789,90</div>
                     <div class="product-actions">
                         <button class="add-to-cart" data-id="4" data-name="Mesa de Centro em Madeira" data-price="789.90">
-                            <i class="fas fa-shopping-cart"></i> Chamar no whatsapp
-                        </button>
-                        <button class="wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-              <div class="product-card">
-                <img src="a5.jpeg" alt="Produto 4" class="product-img" data-product="5">
-                <div class="product-info">
-                    <h3 class="product-name">Conjunto Cabeceira + 2 Mesas de Cabeceira Iconic </h3>
-                    <p class="product-description">Conjunto completo com 1 cabeceira + 2 mesas de cabeceira, Design moderno e natural, com acabamento amadeirado elegante
-Mesas independentes, adaptáveis a diferentes tamanhos de cama</p>
-                    <div class="product-price">€ 234,99</div>
-                    <div class="product-actions">
-                        <button class="add-to-cart" data-id="4" data-name="Mesa de Centro em Madeira" data-price="789.90">
-                            <i class="fas fa-shopping-cart"></i> Chamar no whatsapp
-                        </button>
-                        <button class="wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-              <div class="product-card">
-                <img src="a6.jpeg" alt="Produto 4" class="product-img" data-product="6">
-                <div class="product-info">
-                    <h3 class="product-name">Cama Four com 4 Gavetas </h3>
-                    <p class="product-description">Design contemporâneo e funcional, ideal para otimizar o espaço do quarto</p>
-                    <div class="product-price">€ 299</div>
-                    <div class="product-actions">
-                        <button class="add-to-cart" data-id="4" data-name="Mesa de Centro em Madeira" data-price="789.90">
-                            <i class="fas fa-shopping-cart"></i> Mais informacoes
-                        </button>
-                        <button class="wishlist">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-              <div class="product-card">
-                <img src="a7.jpeg" alt="Produto 4" class="product-img" data-product="7">
-                <div class="product-info">
-                    <h3 class="product-name">Cama Four com 4 Gavetas </h3>
-                    <p class="product-description">Design contemporâneo e funcional, ideal para otimizar o espaço do quarto</p>
-                    <div class="product-price">€ 299</div>
-                    <div class="product-actions">
-                        <button class="add-to-cart" data-id="4" data-name="Mesa de Centro em Madeira" data-price="789.90">
-                            <i class="fas fa-shopping-cart"></i> Mais informacoes
+                            <i class="fas fa-shopping-cart"></i> Adicionar
                         </button>
                         <button class="wishlist">
                             <i class="far fa-heart"></i>
@@ -1510,10 +1292,70 @@ Mesas independentes, adaptáveis a diferentes tamanhos de cama</p>
             </div>
         </div>
 
-     
+        <div class="ver-todos-container">
+            <a href="#" class="btn ver-todos">Ver Todos os Produtos</a>
+        </div>
     </section>
 
-  
+    <!-- Ofertas Especiais -->
+    <section class="special-offers" id="ofertas">
+        <h2>Ofertas Especiais</h2>
+        <div class="line"></div>
+        <div class="offers-container">
+            <!-- Oferta 1 -->
+            <div class="offer-card">
+                <div class="offer-badge">-20%</div>
+                <img src="https://via.placeholder.com/300x200" alt="Oferta 1" class="offer-img">
+                <div class="offer-info">
+                    <h3 class="offer-name">Conjunto de Almofadas Decorativas</h3>
+                    <div class="offer-price">
+                        <span class="original-price">R$ 199,90</span>
+                        <span class="discounted-price">R$ 159,90</span>
+                    </div>
+                    <button class="add-to-cart" data-id="5" data-name="Conjunto de Almofadas Decorativas" data-price="159.90">
+                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <!-- Oferta 2 -->
+            <div class="offer-card">
+                <div class="offer-badge">-15%</div>
+                <img src="https://via.placeholder.com/300x200" alt="Oferta 2" class="offer-img">
+                <div class="offer-info">
+                    <h3 class="offer-name">Tapete Persa Moderno</h3>
+                    <div class="offer-price">
+                        <span class="original-price">R$ 349,90</span>
+                        <span class="discounted-price">R$ 297,90</span>
+                    </div>
+                    <button class="add-to-cart" data-id="6" data-name="Tapete Persa Moderno" data-price="297.90">
+                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrinho de Compras -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Itens do carrinho serão adicionados aqui dinamicamente -->
+            <p class="empty-cart-message">Seu carrinho está vazio</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
 
     <!-- WhatsApp Float -->
     <div class="whatsapp-float">
@@ -1653,22 +1495,18 @@ Mesas independentes, adaptáveis a diferentes tamanhos de cama</p>
         let cart = [];
 
         // Abrir/fechar carrinho
-        if (cartIcon) {
-            cartIcon.addEventListener('click', (e) => {
-                e.preventDefault();
-                cartSidebar.classList.add('active');
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        }
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartSidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
 
-        if (closeCart) {
-            closeCart.addEventListener('click', () => {
-                cartSidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        }
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
 
         // Adicionar produto ao carrinho
         document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -1692,31 +1530,21 @@ Mesas independentes, adaptáveis a diferentes tamanhos de cama</p>
                 }
 
                 updateCart();
-                if (cartSidebar) {
-                    cartSidebar.classList.add('active');
-                }
-                if (overlay) {
-                    overlay.classList.add('active');
-                }
+                cartSidebar.classList.add('active');
+                overlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
         });
 
         // Atualizar carrinho
         function updateCart() {
-            if (!cartItems) return;
-            
             // Limpar carrinho
             cartItems.innerHTML = '';
 
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p class="empty-cart-message">Seu carrinho está vazio</p>';
-                if (cartCount) {
-                    cartCount.textContent = '0';
-                }
-                if (cartTotal) {
-                    cartTotal.textContent = '€ 0,00';
-                }
+                cartCount.textContent = '0';
+                cartTotal.textContent = 'R$ 0,00';
                 return;
             }
 
@@ -1735,7 +1563,7 @@ Mesas independentes, adaptáveis a diferentes tamanhos de cama</p>
                     <img src="https://via.placeholder.com/80x80" alt="${item.name}" class="cart-item-img">
                     <div class="cart-item-details">
                         <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">€ ${item.price.toFixed(2)}</div>
+                        <div class="cart-item-price">R$ ${item.price.toFixed(2)}</div>
                         <div class="cart-item-quantity">
                             <button class="quantity-btn decrease" data-id="${item.id}">-</button>
                             <span>${item.quantity}</span>
@@ -1751,12 +1579,8 @@ Mesas independentes, adaptáveis a diferentes tamanhos de cama</p>
             });
 
             // Atualizar contador e total
-            if (cartCount) {
-                cartCount.textContent = totalItems;
-            }
-            if (cartTotal) {
-                cartTotal.textContent = `€ ${total.toFixed(2)}`;
-            }
+            cartCount.textContent = totalItems;
+            cartTotal.textContent = `R$ ${total.toFixed(2)}`;
 
             // Adicionar eventos para os botões de quantidade e remoção
             document.querySelectorAll('.decrease').forEach(button => {
@@ -1809,36 +1633,26 @@ Mesas independentes, adaptáveis a diferentes tamanhos de cama</p>
         }
 
         // Finalizar compra
-        if (checkoutBtn) {
-            checkoutBtn.addEventListener('click', () => {
-                if (cart.length === 0) {
-                    alert('Seu carrinho está vazio!');
-                    return;
-                }
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
 
-                alert('Compra finalizada com sucesso! Obrigado por comprar conosco.');
-                cart = [];
-                updateCart();
-                if (cartSidebar) {
-                    cartSidebar.classList.remove('active');
-                }
-                if (overlay) {
-                    overlay.classList.remove('active');
-                }
-                document.body.style.overflow = 'auto';
-            });
-        }
+            alert('Compra finalizada com sucesso! Obrigado por comprar conosco.');
+            cart = [];
+            updateCart();
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
 
         // Fechar carrinho ao clicar no overlay
-        if (overlay) {
-            overlay.addEventListener('click', () => {
-                if (cartSidebar) {
-                    cartSidebar.classList.remove('active');
-                }
-                overlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        }
+        overlay.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
 
         // Botões de wishlist
         document.querySelectorAll('.wishlist').forEach(button => {
@@ -1854,130 +1668,6 @@ Mesas independentes, adaptáveis a diferentes tamanhos de cama</p>
                     icon.style.color = '#666';
                 }
             });
-        });
-
-        // ===== VISUALIZADOR DE IMAGENS =====
-        const imageViewer = document.getElementById('imageViewer');
-        const viewerMainImage = document.getElementById('viewerMainImage');
-        const viewerThumbnails = document.getElementById('viewerThumbnails');
-        const viewerClose = document.getElementById('viewerClose');
-        const viewerPrev = document.getElementById('viewerPrev');
-        const viewerNext = document.getElementById('viewerNext');
-
-        // Dados das imagens para cada produto
-        const productImages = {
-            1: ['a1.jpeg', 'a2.jpeg', 'a3.jpeg', 'a5.jpeg'],
-            2: ['a2.jpeg', 'a1.jpeg', 'a3.jpeg', 'a5.jpeg'],
-            3: ['a3.jpeg', 'a1.jpeg', 'a2.jpeg', 'a5.jpeg'],
-            4: ['a3.jpeg', 'a1.jpeg', 'a2.jpeg', 'a5.jpeg'],
-            5: ['a5.jpeg', 'a1.jpeg', 'a2.jpeg', 'a3.jpeg'],
-            6: ['a6.jpeg', 'a1.jpeg', 'a2.jpeg', 'a3.jpeg'],
-            7: ['a7.jpeg', 'a1.jpeg', 'a2.jpeg', 'a3.jpeg']
-        };
-
-        let currentProductId = null;
-        let currentImageIndex = 0;
-
-        // Abrir visualizador de imagens
-        document.querySelectorAll('.product-img').forEach(img => {
-            img.addEventListener('click', function() {
-                const productId = this.getAttribute('data-product');
-                if (productId && productImages[productId]) {
-                    openImageViewer(productId);
-                }
-            });
-        });
-
-        function openImageViewer(productId) {
-            currentProductId = productId;
-            currentImageIndex = 0;
-            
-            // Atualizar imagem principal
-            viewerMainImage.src = productImages[productId][0];
-            
-            // Criar miniaturas
-            viewerThumbnails.innerHTML = '';
-            productImages[productId].forEach((image, index) => {
-                const thumbnail = document.createElement('img');
-                thumbnail.src = image;
-                thumbnail.alt = `Miniatura ${index + 1}`;
-                thumbnail.className = 'viewer-thumbnail';
-                if (index === 0) {
-                    thumbnail.classList.add('active');
-                }
-                
-                thumbnail.addEventListener('click', () => {
-                    changeImage(index);
-                });
-                
-                viewerThumbnails.appendChild(thumbnail);
-            });
-            
-            // Mostrar visualizador
-            imageViewer.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeImageViewer() {
-            imageViewer.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        function changeImage(index) {
-            if (!currentProductId) return;
-            
-            currentImageIndex = index;
-            viewerMainImage.src = productImages[currentProductId][index];
-            
-            // Atualizar miniaturas ativas
-            document.querySelectorAll('.viewer-thumbnail').forEach((thumb, i) => {
-                if (i === index) {
-                    thumb.classList.add('active');
-                } else {
-                    thumb.classList.remove('active');
-                }
-            });
-        }
-
-        function nextImage() {
-            if (!currentProductId) return;
-            
-            const totalImages = productImages[currentProductId].length;
-            currentImageIndex = (currentImageIndex + 1) % totalImages;
-            changeImage(currentImageIndex);
-        }
-
-        function prevImage() {
-            if (!currentProductId) return;
-            
-            const totalImages = productImages[currentProductId].length;
-            currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
-            changeImage(currentImageIndex);
-        }
-
-        // Eventos do visualizador
-        viewerClose.addEventListener('click', closeImageViewer);
-        viewerNext.addEventListener('click', nextImage);
-        viewerPrev.addEventListener('click', prevImage);
-
-        // Navegação por teclado
-        document.addEventListener('keydown', (e) => {
-            if (!imageViewer.classList.contains('active')) return;
-            
-            if (e.key === 'Escape') {
-                closeImageViewer();
-            } else if (e.key === 'ArrowRight') {
-                nextImage();
-            } else if (e.key === 'ArrowLeft') {
-                prevImage();
-            }
-        });
-
-        // Fechar visualizador ao clicar no overlay
-        imageViewer.addEventListener('click', (e) => {
-            if (e.target === imageViewer) {
-                closeImageViewer();
-            }
         });
     </script>
 </body>
